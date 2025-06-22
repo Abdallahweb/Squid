@@ -1,6 +1,100 @@
-<!doctypehtml><html lang=en><meta charset=UTF-8><title>Squid Game | Javascript</title><style> html { background-image: url(https://img.freepik.com/free-photo/african-savannah-scene-black-white_23-2151773986.jpg); background-position: center; background-size: cover; background-repeat: no-repeat; overflow: hidden; height: 100vh; margin: 0; padding: 0; overflow: hidden; width: 100% } .toy { position: absolute; bottom: 0; width: 200px; height: 200px } .loser { transform: rotate(60deg); transition: all 3s; } .loserBody { background-color: rgba(54, 4, 4, .609); background-position: center; background-size: cover; background-repeat: no-repeat; overflow: hidden; height: 100vh; margin: 0; padding: 0 } .toy1 { position: absolute; left: 50px } .toy2 { position: absolute; left: 250px } .toy3 { position: absolute; left: 400px } .toy4 { position: absolute; right: 250px } .toy5 { position: absolute; right: 50px } .fixed { cursor: pointer }</style><body id=body><button style="position:absolute;right:50px;top:60px;background-color:rgba(17, 15, 68, 0.5);color:#fff;cursor:pointer;padding:10px 60px;border-radius:1px 50px 1px 50px;font-size:20px; box-shadow: 5px 10px 20px rgba(8, 7, 39, 0.5) inset;;width:auto;border:1px solid #fff" id=start>Move</button><button style="position:absolute;left:50px;top:60px;background-color:rgba(127,22,22,.5);color:#fff;cursor:pointer;padding:10px 60px;border-radius:50px 1px 50px 1px ;font-size:20px;width:auto;border:1px solid #fff; box-shadow: 5px 10px 20px rgba(179, 22, 22, 0.5) inset;" id=stop>Stop</button><div style=text-align:center;display:flex;justify-content:center><img src=./security.png height=100px width=100px><img src=BackMonster.jpg height=250px width=250px id=monster style=position:absolute;top:0><img src=./security.png height=100px width=100px></div><hr style="background-color:rgba(145,6,6,.822);height:4px;margin-top:150px;border:1px double #999"><div style=text-align:center;display:flex;overflow:hidden></div><div><img src=player1.jpg class="fixed toy toy1"></div><div><img src=player1.jpg class="fixed toy toy2"></div><div><img src=player1.jpg class="fixed toy toy3"></div><div><img src=player1.jpg class="fixed toy toy4"></div><div><img src=player1.jpg class="fixed toy toy5"></div><audio id=myAudio><source autoplay src=./track.mp3></audio><audio id="Gun"><source src="./gun.mp3" autoplay></audio><div style="width:100%;height:100%;background-size:cover;background-position:center;background-image:linear-gradient(to right,#000,50%,transparent,#000),url(./load.jpg);position:absolute;top:0;left:0;text-align:center" id=load><div style=position:absolute;left:50%;top:50%;margin-left:-100px;width:200px><button style="background-color:rgba(0,0,0,.5);color:#fff;cursor:pointer;padding:20px;border-radius:999px;font-size:20px;width:auto;border:1px solid #fff" onclick=stratGame()>Start Game</button></div></div>
+<!doctypehtml>
+<html lang=en>
+<meta charset=UTF-8>
+<title>Squid Game | Javascript</title>
+<style>
+    html {
+        background-image: url(https://img.freepik.com/free-photo/african-savannah-scene-black-white_23-2151773986.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+
+    }
+
+    #start:hover{
+        scale: 1.2;
+    }
     
-    <script src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script>
+    #stop:hover{
+        scale: 1.2;
+    }
+
+
+    .toy {
+        position: absolute;
+        bottom: 0;
+        width: 200px;
+        height: 200px;
+    }
+
+    .loser {
+        transform: rotate(60deg);
+        transition: all 3s;
+        
+    }
+
+    .loserBody {
+        background-color: rgba(54, 4, 4, .609);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        height: 100vh;
+        margin: 0;
+        padding: 0
+    }
+
+    .toy1 {
+        position: absolute;
+        left: 50px
+    }
+
+    .toy2 {
+        position: absolute;
+        left: 250px
+    }
+
+    .toy3 {
+        position: absolute;
+        left: 400px
+    }
+
+    .toy4 {
+        position: absolute;
+        right: 250px
+    }
+
+    .toy5 {
+        position: absolute;
+        right: 50px
+    }
+
+    .fixed {
+        cursor: pointer
+    }
+</style>
+
+<body id=body><button style="position:absolute;right:50px;top:60px;background-color:rgba(17, 15, 68, 0.5);color:#fff;cursor:pointer;padding:10px 60px;border-radius:1px 50px 1px 50px;font-size:20px; box-shadow: 5px 10px 20px rgba(8, 7, 39, 0.5) inset;;width:auto;border:1px solid #fff"
+        id=start>Move</button><button style="position:absolute;left:50px;top:60px;background-color:rgba(177, 22, 22, 0.5);color:#fff;cursor:pointer;padding:10px 60px;border-radius:50px 1px 50px 1px ;font-size:20px;width:auto;border:1px solid #fff; box-shadow: 5px 10px 20px rgba(179, 22, 22, 0.5) inset;"
+        id=stop>Stop</button>
+    <div style=text-align:center;display:flex;justify-content:center><img src=./security.png height=100px width=100px><img src=BackMonster.jpg height=250px width=250px id=monster style=position:absolute;top:0><img src=./security.png height=100px width=100px></div>
+    <hr style="background-color:rgba(145,6,6,.822);height:4px;margin-top:150px;border:1px double #999">
+    <div style=text-align:center;display:flex;overflow:hidden></div>
+    <div><img src=player1.jpg class="fixed toy toy1"></div>
+    <div><img src=player1.jpg class="fixed toy toy2"></div>
+    <div><img src=player1.jpg class="fixed toy toy3"></div>
+    <div><img src=player1.jpg class="fixed toy toy4"></div>
+    <div><img src=player1.jpg class="fixed toy toy5"></div><audio id=myAudio><source autoplay src=./track.mp3></audio><audio id="Gun"><source src="./gun.mp3" autoplay></audio>
+    <div style="width:100%;height:100%;background-size:cover;background-position:center;background-image:linear-gradient(to right,#000,50%,transparent,#000),url(./load.jpg);position:absolute;top:0;left:0;text-align:center"
+        id=load>
+        <div style=position:absolute;left:50%;top:50%;margin-left:-100px;width:200px><button style="background-color:rgba(0,0,0,.5);color:#fff;cursor:pointer;padding:20px;border-radius:999px;font-size:20px;width:auto;border:1px solid #fff" onclick=stratGame()>Start Game</button></div>
+    </div>    <script src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script>
     <script>
         var move, pos = 10,
             toy = document.getElementsByClassName("toy");
