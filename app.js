@@ -3,9 +3,6 @@ var move,
     pos = 10,
     toy = document.getElementsByClassName("toy");
 
-// ==========================
-// ضبط حجم الصور (كبير وطبيعي)
-// ==========================
 for (let i = 0; i < toy.length; i++) {
 
     toy[i].style.width = "170px";
@@ -15,9 +12,6 @@ for (let i = 0; i < toy.length; i++) {
     toy[i].style.transition = "0.3s";
 }
 
-// ==========================
-// حركة اللاعبين
-// ==========================
 function toy1() {
 
     if (toy[0].offsetTop < 100) {
@@ -31,7 +25,7 @@ function toy1() {
         toy[0].style.bottom =
             Math.floor(Math.random() + pos) + 60 + "px";
 
-        toy[0].setAttribute("src", "running.png");
+        toy[0].setAttribute("src", "running.gif");
     }
 }
 
@@ -48,7 +42,7 @@ function toy2() {
         toy[1].style.bottom =
             Math.floor(Math.random() + pos) + 10 + "px";
 
-        toy[1].setAttribute("src", "running.png");
+        toy[1].setAttribute("src", "running.gif");
     }
 }
 
@@ -65,7 +59,7 @@ function toy3() {
         toy[2].style.bottom =
             Math.floor(Math.random() + pos) + 35 + "px";
 
-        toy[2].setAttribute("src", "running.png");
+        toy[2].setAttribute("src", "running.gif");
     }
 }
 
@@ -82,7 +76,7 @@ function toy4() {
         toy[3].style.bottom =
             Math.floor(Math.random() + pos) + 20 + "px";
 
-        toy[3].setAttribute("src", "running.png");
+        toy[3].setAttribute("src", "running.gif");
     }
 }
 
@@ -99,13 +93,10 @@ function toy5() {
         toy[4].style.bottom =
             Math.floor(Math.random() + pos) + 50 + "px";
 
-        toy[4].setAttribute("src", "running.png");
+        toy[4].setAttribute("src", "running.gif");
     }
 }
 
-// ==========================
-// زر START
-// ==========================
 $("#start").click(function () {
 
     $("#start").prop("disabled", true);
@@ -153,9 +144,6 @@ $("#start").click(function () {
     }
 });
 
-// ==========================
-// زر STOP
-// ==========================
 $("#stop").click(function () {
 
     $("#start").prop("disabled", false);
@@ -171,15 +159,9 @@ $("#stop").click(function () {
     toy[4].setAttribute("src", "./player1.jpg");
 });
 
-// ==========================
-// الأصوات
-// ==========================
 var x = document.getElementById("myAudio"),
     Gun = document.getElementById("Gun");
 
-// ==========================
-// تشغيل اللعبة
-// ==========================
 function stratGame() {
 
     x.play();
@@ -243,9 +225,6 @@ function stratGame() {
     }, 5000);
 }
 
-// ==========================
-// التحقق من الحركة
-// ==========================
 var CheckMove = setInterval(function () {
 
     var t = document.getElementById("monster");
@@ -265,21 +244,25 @@ var CheckMove = setInterval(function () {
 
             clearInterval(move);
 
-            $("#body").addClass("loserBody");
+    toy = document.getElementsByClassName("toy");
+
+
+        toy[0].setAttribute("src", "./player1.jpg");   
+        toy[1].setAttribute("src", "./player1.jpg");            
+        toy[2].setAttribute("src", "./player1.jpg");            
+        toy[3].setAttribute("src", "./player1.jpg");            
+        toy[4].setAttribute("src", "./player1.jpg");            
+         
 
             setTimeout(function () {
 
                 window.location = window.location;
-
             }, 3000);
         }
     }
 
 }, 1000);
 
-// ==========================
-// منع النسخ والفحص
-// ==========================
 document.onkeydown = function (t) {
 
     return !t.ctrlKey ||
