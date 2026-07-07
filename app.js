@@ -153,10 +153,10 @@ $("#stop").click(function () {
     $(".toy").addClass("fixed");
 
     toy[0].setAttribute("src", "./player1.jpg");
-    toy[1].setAttribute("src", "./player1.jpg");
-    toy[2].setAttribute("src", "./player1.jpg");
+    toy[1].setAttribute("src", "./player2.jpg");
+    toy[2].setAttribute("src", "./player3.jpg");
     toy[3].setAttribute("src", "./player1.jpg");
-    toy[4].setAttribute("src", "./player1.jpg");
+    toy[4].setAttribute("src", "./player4.jpg");
 });
 
 var x = document.getElementById("myAudio"),
@@ -248,10 +248,10 @@ var CheckMove = setInterval(function () {
 
 
         toy[0].setAttribute("src", "./player1.jpg");   
-        toy[1].setAttribute("src", "./player1.jpg");            
-        toy[2].setAttribute("src", "./player1.jpg");            
+        toy[1].setAttribute("src", "./player2.jpg");            
+        toy[2].setAttribute("src", "./player3.jpg");            
         toy[3].setAttribute("src", "./player1.jpg");            
-        toy[4].setAttribute("src", "./player1.jpg");            
+        toy[4].setAttribute("src", "./player4.jpg");            
          
 
             setTimeout(function () {
